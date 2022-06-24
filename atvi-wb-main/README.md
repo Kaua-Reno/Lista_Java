@@ -1,5 +1,7 @@
 # atvi-wb
 
-Atividade 3º Semestre - Programação Orientada a Objetos
+3ºADS
 
-Professor: Gerson Penha
+Atividade em Java de POO
+
+Professor: Gerson da Penha Neto
