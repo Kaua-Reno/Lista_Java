@@ -3,6 +3,9 @@ package com.wb.cadastro;
 import java.util.List;
 
 import com.wb.io.Entrada;
+import com.wb.listagem.Listagem;
+import com.wb.listagem.ListarTodosClientes;
+import com.wb.listagem.ListarTodosProdutos;
 import com.wb.modelo.Cliente;
 import com.wb.modelo.Produto;
 
@@ -19,12 +22,11 @@ public class AdicionarProduto extends Cadastro{
 	
 	@Override
 	public void cadastrar() {
-		System.out.println("Lista de todos os clientes:");
-		int i = 1;
-		for (Cliente cliente : clientes) {
-			System.out.println(i + ") " + cliente.nome + " - CPF: " + cliente.getCpf().getValor());	
-			i++;
-		}
+		System.out.println("\nInício da adição de produtos consumidos por um cliente");
+		System.out.println("------------------------------------------------------");
+		
+		Listagem listagemClientes = new ListarTodosClientes(clientes, 2);
+		listagemClientes.listar();
 		
 		int numCliente = 0;
 		while (true) {
@@ -38,12 +40,8 @@ public class AdicionarProduto extends Cadastro{
 		
 		Cliente cliente = clientes.get(numCliente - 1);
 		
-		System.out.println("Lista de todos os produtos:");
-		int j = 1;
-		for (Produto produto : produtos) {
-			System.out.println(j + ") " + produto.nome);	
-			j++;
-		}
+		Listagem listarProdutos = new ListarTodosProdutos(produtos);
+		listarProdutos.listar();
 		
 		int numProduto = 0;
 		while (true) {
@@ -66,8 +64,9 @@ public class AdicionarProduto extends Cadastro{
 		}
 		
 		Produto produto = produtos.get(numProduto - 1);
-		for (i = 1; i <= numQuantidade; i++) {
+		for (int i = 1; i <= numQuantidade; i++) {
 			cliente.getProdutosConsumidos().add(produto);
 		}
+		System.out.println("Produto consumido adicionado com sucesso!");
 	}
 }

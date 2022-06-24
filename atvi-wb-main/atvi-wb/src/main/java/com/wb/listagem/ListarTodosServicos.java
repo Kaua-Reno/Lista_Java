@@ -13,12 +13,15 @@ public class ListarTodosServicos extends Listagem {
 
 	@Override
 	public void listar() {
+		int n = 1;
 		System.out.println("\nLista de todos os serviços:");
 		System.out.println("---------------------------");
 		for (Servico servico : servicos) {
+			System.out.println(n + ")");
 			System.out.println("Nome: " + servico.nome);
 			System.out.println("Valor: " + servico.valor);
-			System.out.println("--------------------------------------");
+			System.out.println("---------------------------");
+			n++;
 		}
 	}
 }

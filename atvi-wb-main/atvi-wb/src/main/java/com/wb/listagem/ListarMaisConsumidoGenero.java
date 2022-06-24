@@ -84,14 +84,17 @@ public class ListarMaisConsumidoGenero extends Listagem {
 				  }
 				});
 			
-			System.out.println("Lista dos serviços mais consumidos pelo gênero " + genero.toLowerCase());
-			System.out.println("--------------------------------------");
-			for (QuantidadeServico quantidadeServico : quantidadeTodosServicos) {
-				System.out.println("Nome: " + quantidadeServico.servico.nome);
-				System.out.println("Quantidade de vezes consumido: " + quantidadeServico.getQuantidadeConsumido());
+			if(quantidadeTodosServicos.size() == 0) {
+				System.out.println("Não há serviços cadastrados!");
+			} else {
+				System.out.println("\nLista dos serviços mais consumidos pelo gênero " + genero.toLowerCase());
 				System.out.println("--------------------------------------");
+				for (QuantidadeServico quantidadeServico : quantidadeTodosServicos) {
+					System.out.println("Nome: " + quantidadeServico.servico.nome);
+					System.out.println("Quantidade de vezes consumido: " + quantidadeServico.getQuantidadeConsumido());
+					System.out.println("--------------------------------------");
+				}
 			}
-			
 			execucaoConsumido = false;
 		} else {
 			if (consumidoNum == 2) {
@@ -115,14 +118,17 @@ public class ListarMaisConsumidoGenero extends Listagem {
 					    return qp2.getQuantidadeConsumido().compareTo(qp1.getQuantidadeConsumido());
 					  }
 					});
-				
-				System.out.println("Lista dos serviços mais consumidos pelo gênero " + genero.toLowerCase());
-				System.out.println("--------------------------------------");
-				for (QuantidadeProduto quantidadeProduto : quantidadeTodosProdutos) {
-					System.out.println("Nome: " + quantidadeProduto.produto.nome);
-					System.out.println("Quantidade de vezes consumido: " + quantidadeProduto.getQuantidadeConsumido());
-					System.out.println("--------------------------------------");
-				}	
+				if(quantidadeTodosProdutos.size() == 0) {
+					System.out.println("Não há produtos cadastrados!");
+				} else {
+					System.out.println("\nLista dos produtos mais consumidos pelo gênero " + genero.toLowerCase());
+					System.out.println("--------------------------------------------------------");
+					for (QuantidadeProduto quantidadeProduto : quantidadeTodosProdutos) {
+						System.out.println("Nome: " + quantidadeProduto.produto.nome);
+						System.out.println("Quantidade de vezes consumido: " + quantidadeProduto.getQuantidadeConsumido());
+						System.out.println("--------------------------------------------------------");
+					}	
+				}
 				execucaoConsumido = false;
 			}
 			else {

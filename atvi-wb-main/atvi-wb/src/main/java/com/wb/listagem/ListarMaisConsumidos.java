@@ -62,14 +62,17 @@ public class ListarMaisConsumidos extends Listagem {
 				  }
 				});
 			
-			System.out.println("Lista dos serviços mais consumidos");
-			System.out.println("--------------------------------------");
-			for (QuantidadeServico quantidadeServico : quantidadeTodosServicos) {
-				System.out.println("Nome: " + quantidadeServico.servico.nome);
-				System.out.println("Quantidade de vezes consumido: " + quantidadeServico.getQuantidadeConsumido());
+			if (quantidadeTodosServicos.size() == 0) {
+				System.out.println("Não há serviços cadastrados!");
+			} else {
+				System.out.println("Lista dos serviços mais consumidos");
 				System.out.println("--------------------------------------");
+				for (QuantidadeServico quantidadeServico : quantidadeTodosServicos) {
+					System.out.println("Nome: " + quantidadeServico.servico.nome);
+					System.out.println("Quantidade de vezes consumido: " + quantidadeServico.getQuantidadeConsumido());
+					System.out.println("--------------------------------------");
+				}
 			}
-			
 			execucaoConsumido = false;
 		} else {
 			if (consumidoNum == 2) {
@@ -94,13 +97,17 @@ public class ListarMaisConsumidos extends Listagem {
 					  }
 					});
 				
-				System.out.println("Lista dos serviços mais consumidos");
-				System.out.println("--------------------------------------");
-				for (QuantidadeProduto quantidadeProduto : quantidadeTodosProdutos) {
-					System.out.println("Nome: " + quantidadeProduto.produto.nome);
-					System.out.println("Valor: " + quantidadeProduto.produto.valor);
-					System.out.println("Quantidade de vezes consumido: " + quantidadeProduto.getQuantidadeConsumido());
-					System.out.println("--------------------------------------");
+				if (quantidadeTodosProdutos.size() == 0) {
+					System.out.println("Não há produtos cadastrados!");
+				} else {
+					System.out.println("Lista dos produtos mais consumidos");
+					System.out.println("----------------------------------");
+					for (QuantidadeProduto quantidadeProduto : quantidadeTodosProdutos) {
+						System.out.println("Nome: " + quantidadeProduto.produto.nome);
+						System.out.println("Valor: " + quantidadeProduto.produto.valor);
+						System.out.println("Quantidade de vezes consumido: " + quantidadeProduto.getQuantidadeConsumido());
+						System.out.println("----------------------------------");
+					}
 				}
 				execucaoConsumido = false;
 			}

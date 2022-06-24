@@ -3,6 +3,8 @@ package com.wb.excluir;
 import java.util.List;
 
 import com.wb.io.Entrada;
+import com.wb.listagem.Listagem;
+import com.wb.listagem.ListarTodosServicos;
 import com.wb.modelo.Servico;
 
 public class ExcluirServico extends Exclusao {
@@ -19,12 +21,8 @@ public class ExcluirServico extends Exclusao {
 		System.out.println("\nInício da exclusão de um serviço");
 		System.out.println("--------------------------------");
 				
-		System.out.println("Lista de todos os serviços:");
-		int i = 1;
-		for (Servico servico : servicos) {
-			System.out.println(i + " - " + servico.nome);	
-			i++;
-		}
+		Listagem listarServicos = new ListarTodosServicos(servicos);
+		listarServicos.listar();
 		
 		int numServico = 0;
 		while (true) {

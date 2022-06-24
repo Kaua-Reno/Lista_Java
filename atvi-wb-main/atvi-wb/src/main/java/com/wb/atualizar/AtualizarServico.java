@@ -3,6 +3,8 @@ package com.wb.atualizar;
 import java.util.List;
 
 import com.wb.io.Entrada;
+import com.wb.listagem.Listagem;
+import com.wb.listagem.ListarTodosServicos;
 import com.wb.modelo.Servico;
 
 public class AtualizarServico extends Atualizacao{
@@ -18,13 +20,9 @@ public class AtualizarServico extends Atualizacao{
 	public void atualizar() {
 		System.out.println("\nInício da atualização de um serviço");
 		System.out.println("-----------------------------------");
-		
-		System.out.println("Lista de todos os serviços:");
-		int i = 1;
-		for (Servico servico : servicos) {
-			System.out.println(i + " - " + servico.nome);	
-			i++;
-		}
+
+		Listagem listarServicos = new ListarTodosServicos(servicos);
+		listarServicos.listar();
 		
 		int numServico = 0;
 		while (true) {
@@ -41,6 +39,7 @@ public class AtualizarServico extends Atualizacao{
 		boolean execucaoSel = true;
 		while(execucaoSel) {
 			
+			System.out.println("\nInformações do serviço:");
 			System.out.println("1) Nome: " + servico.nome);
 			System.out.println("2) Valor: " + servico.valor);
 			System.out.println("0) Sair");
@@ -67,7 +66,7 @@ public class AtualizarServico extends Atualizacao{
 				System.out.println("Valor do serviço atualizado com sucesso!");
 				break;
 			default:
-				System.out.println("Operação não entendida");
+				System.out.println("Operação não entendida.");
 			}	
 		}
 	}

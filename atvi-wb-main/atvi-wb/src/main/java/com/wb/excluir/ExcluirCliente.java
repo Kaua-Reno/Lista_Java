@@ -21,13 +21,12 @@ public class ExcluirCliente extends Exclusao{
 		System.out.println("\nInício da exclusão de um cliente");
 		System.out.println("--------------------------------");
 				
-		System.out.println("Lista de todos os clientes:");
 		Listagem listagemClientes = new ListarTodosClientes(clientes, 1);
 		listagemClientes.listar();
 		
 		int numCliente = 0;
 		while (true) {
-			System.out.println("Por favor informe o numero do cliente:");
+			System.out.println("Por favor informe o numero do cliente que deseja excluir:");
 			numCliente = entrada.receberNumeroInteiro();
 			if (numCliente > 0 && numCliente <= clientes.size()) {
 				break;

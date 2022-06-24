@@ -69,16 +69,17 @@ public class ListarMaisConsumiramValor extends Listagem {
 			});
 		
 		int cont = 1;
-		System.out.println("Lista dos 5 clientes que mais gastaram em " + consumido);
-		System.out.println("--------------------------------------");
+		System.out.println("\nLista dos 5 clientes que mais gastaram em " + consumido);
+		System.out.println("-------------------------------------------------");
 		for (QuantidadeCliente quantidadeCliente : quantidadeTodosClientes) {
 			if (cont > 5) {
 				break;
 			}
 			System.out.println(cont + ")");
 			System.out.println("Nome: " + quantidadeCliente.cliente.nome);
+			System.out.println("CPF: " + quantidadeCliente.cliente.getCpf().getValor());
 			System.out.println("Valor total de " + consumido +  " consumidos: " + quantidadeCliente.getValorConsumido());
-			System.out.println("--------------------------------------");
+			System.out.println("-------------------------------------------------");
 			cont++;			
 		}	
 	}

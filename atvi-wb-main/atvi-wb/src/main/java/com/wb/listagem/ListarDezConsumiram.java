@@ -72,8 +72,8 @@ public class ListarDezConsumiram extends Listagem {
 		}
 			
 		int cont = 1;
-		System.out.println("Lista dos 10 clientes que " + maisOuMenos + " consumiram " + consumido);
-		System.out.println("--------------------------------------");
+		System.out.println("\nLista dos 10 clientes que " + maisOuMenos + " consumiram " + consumido);
+		System.out.println("--------------------------------------------------");
 		for (QuantidadeCliente quantidadeCliente : quantidadeTodosClientes) {
 			if (cont > 10) {
 				break;

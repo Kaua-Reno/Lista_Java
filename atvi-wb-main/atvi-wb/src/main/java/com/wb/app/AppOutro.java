@@ -32,57 +32,46 @@ public class AppOutro extends Execucao {
 			System.out.println("0 - Voltar para tela inicial");
 			
 			int operacao = entrada.receberNumeroInteiro();
-			
-			switch(operacao) {
+			int operacaoFinal = operacao;
+			if (operacao == -1) {
+				operacaoFinal = -2;
+			}
+			if (empresa.getClientes().size() == 0 && (operacao == 1 || operacao == 4 || operacao == 5 || operacao == 6)) {
+				System.out.println("Não há clientes cadastrados!");
+				operacaoFinal = -1;
+			}
+			if (empresa.getProdutos().size() == 0 && empresa.getServicos().size() == 0 && (operacao == 2 || operacao == 3)) {
+				System.out.println("Não há produtos e serviços cadastrados!");
+				operacaoFinal = -1;
+			}
+			switch(operacaoFinal) {
+			case -1:
+				break;
 			case 0:
 				execucao = false;
 				System.out.println("Voltando para tela inicial...");
 				break;
 			case 1:
-				if (empresa.getClientes().size() == 0) {
-					System.out.println("Não há clientes cadastrados!");
-					break;
-				}
 				Listagem listarClienteGênero = new ListarClienteGenero(empresa.getClientes());
 				listarClienteGênero.listar();
 				break;
 			case 2:
-				if (empresa.getProdutos().size() == 0 && empresa.getServicos().size() == 0) {
-					System.out.println("Não há produtos e serviços cadastrados!");
-					break;
-				}
 				Listagem listarMaisConsumidos = new ListarMaisConsumidos(empresa);
 				listarMaisConsumidos.listar();
 				break;
 			case 3:
-				if (empresa.getProdutos().size() == 0 && empresa.getServicos().size() == 0) {
-					System.out.println("Não há produtos e serviços cadastrados!");
-					break;
-				}
 				Listagem listarMaisConsumidoGenero = new ListarMaisConsumidoGenero(empresa);
 				listarMaisConsumidoGenero.listar();
 				break;
 			case 4:
-				if (empresa.getClientes().size() == 0) {
-					System.out.println("Não há clientes cadastrados!");
-					break;
-				}
 				Listagem listarDezMaisConsumiram = new ListarDezConsumiram(empresa, "mais");
 				listarDezMaisConsumiram.listar();
 				break;
 			case 5:
-				if (empresa.getClientes().size() == 0) {
-					System.out.println("Não há clientes cadastrados!");
-					break;
-				}
 				Listagem listarDezMenosConsumiram = new ListarDezConsumiram(empresa, "menos");
 				listarDezMenosConsumiram.listar();
 				break;
 			case 6:
-				if (empresa.getClientes().size() == 0) {
-					System.out.println("Não há clientes cadastrados!");
-					break;
-				}
 				Listagem listarMaisConsumiramValor = new ListarMaisConsumiramValor(empresa);
 				listarMaisConsumiramValor.listar();
 				break;
