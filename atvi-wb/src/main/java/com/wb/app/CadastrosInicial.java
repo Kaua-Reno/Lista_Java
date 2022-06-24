@@ -33,7 +33,7 @@ public class CadastrosInicial extends Execucao{
 				genero = "Masculino";
 			}
 			if (i < 10) {
-				Cliente cliente = new Cliente("Cliente " + i, "Gerson0" + i, 
+				Cliente cliente = new Cliente("Gerson " + i, "Gers0" + i, 
 						new CPF(LocalDate.parse("15/0" + i + "/200" + i, formato), "123456789/0" + i), genero);
 				cliente.getRgs().add(new RG(LocalDate.parse("18/0" + i + "/200" + i, formato), i + "0.123.456-78"));
 				cliente.getTelefones().add(new Telefone ("12", "98765-432" + i));
@@ -47,7 +47,7 @@ public class CadastrosInicial extends Execucao{
 				}
 				this.empresa.getClientes().add(cliente);
 			} else {
-				Cliente cliente = new Cliente("Cliente " + i, "Cli0" + i, 
+				Cliente cliente = new Cliente("Gerson " + i, "Gers0" + i, 
 						new CPF(LocalDate.parse(i + "/08/20" + i, formato), "123456789/" + i), genero);
 				cliente.getRgs().add(new RG(LocalDate.parse(i + "/08/2010", formato), i + ".123.456-78"));
 				cliente.getTelefones().add(new Telefone ("12", "98765-43" + i));
